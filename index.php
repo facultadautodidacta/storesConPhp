@@ -91,6 +91,15 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#tablastores').load('tabla.php');
+
+    $('#btnAgregarJuego').click(function(){
+          if(validarFormVacio('frmAgrega') > 0){
+            alertify.alert("Debes llenar todos los campos por favor!");
+            return false;
+          }
+    });
+
+
 	});
 </script>
 
@@ -99,16 +108,16 @@
 <script type="text/javascript">
   
     function validarFormVacio(formulario){
-    datos=$('#' + formulario).serialize();
-    d=datos.split('&');
-    vacios=0;
-    for(i=0;i< d.length;i++){
-        controles=d[i].split("=");
-        if(controles[1]=="A" || controles[1]==""){
-          vacios++;
-        }
-    }
-    return vacios;
+      datos=$('#' + formulario).serialize();
+      d=datos.split('&');
+      vacios=0;
+      for(i=0;i< d.length;i++){
+          controles=d[i].split("=");
+          if(controles[1]=="A" || controles[1]==""){
+            vacios++;
+          }
+      }
+      return vacios;
   }
 
 </script>
